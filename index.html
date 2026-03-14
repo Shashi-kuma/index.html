@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shashikumar.D | Data Science Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
+body{background:#0f2027;color:white;overflow-x:hidden;}
+canvas{position:fixed;top:0;left:0;z-index:-1;}
+header{text-align:center;padding:60px 20px;}
+header h1{font-size:45px;color:#00ffff;}
+header p{color:#bfefff;margin-top:10px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;padding:40px;max-width:1200px;margin:auto;}
+.card{position:relative;border-radius:15px;overflow:hidden;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,0.6);transition:0.4s;}
+.card:hover{transform:scale(1.05);}
+.card img{width:100%;height:220px;object-fit:cover;}
+.info{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;opacity:0;transition:0.4s;}
+.card:hover .info{opacity:1;}
+.info h3{color:#00ffff;margin-bottom:10px;}
+footer{text-align:center;padding:20px;margin-top:30px;}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+<h1>Shashikumar.D</h1>
+<p>Artificial Intelligence | Machine Learning | Data Science</p>
+</header>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Profile</h3>
+<p>Artificial Intelligence enthusiast with strong knowledge in Machine Learning and Python programming. Experienced in data preprocessing and predictive modeling.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Education</h3>
+<p>MCA – Data Science<br>Chanakya University (2024–2026)<br>CGPA: 7.5<br><br>BCA – Tumakuru University (2021–2024)<br>CGPA: 8.0</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Technical Skills</h3>
+<p>Python, Machine Learning, Deep Learning, Power BI, MySQL, HTML, CSS, JavaScript</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Tools</h3>
+<p>TensorFlow, Scikit-learn, Jupyter Notebook, Google Colab, Git, VS Code</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Projects</h3>
+<p>Healthcare Data Analysis & Prediction<br>Movie Ratings EDA<br>Login & Registration System (.NET)</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1565689157206-0fddef7589a2?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Certifications</h3>
+<p>QSpiders – Java, SQL, Selenium<br>Basic Python Certification<br>Basic SQL Certification<br>Basic C Certification</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=60">
+<div class="info">
+<h3>Contact</h3>
+<p>Phone: +91 9535118545<br>Email: shashikumaronline@gmail.com<br>GitHub: github.com/Shashi-kuma<br>LinkedIn: linkedin.com/in/shashikumar-d</p>
+</div>
+</div>
+
+</div>
+
+<footer>© 2026 Shashikumar.D | Data Science Portfolio</footer>
+
+<script>
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<100;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-0.5),dy:(Math.random()-0.5)});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#00ffff";
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width) p.dx*=-1;
+if(p.y<0||p.y>canvas.height) p.dy*=-1;
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
